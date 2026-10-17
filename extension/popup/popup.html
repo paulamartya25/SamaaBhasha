@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SamaaBhasha</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="header">
+    <div class="logo">🌐 SamaaBhasha</div>
+    <div class="tagline">समाभाषा · Universal Language</div>
+  </div>
+
+  <!-- Status Indicator -->
+  <div class="status-bar">
+    <span class="status-dot" id="statusDot"></span>
+    <span id="statusText">Ready</span>
+  </div>
+
+  <!-- Mode Selection -->
+  <div class="section">
+    <label class="section-label">Mode</label>
+    <div class="mode-toggle">
+      <button class="mode-btn active" id="modeVideoCall" data-mode="videocall">
+        📹 Video Call
+      </button>
+      <button class="mode-btn" id="modeYoutube" data-mode="youtube">
+        ▶️ YouTube
+      </button>
+    </div>
+  </div>
+
+  <!-- Language Selection -->
+  <div class="section">
+    <label class="section-label">Caption Language</label>
+    <select id="targetLanguage" class="lang-select">
+      <optgroup label="🇮🇳 Indian Languages">
+        <option value="hin_Deva">Hindi (हिन्दी)</option>
+        <option value="tel_Telu">Telugu (తెలుగు)</option>
+        <option value="tam_Taml">Tamil (தமிழ்)</option>
+        <option value="ben_Beng">Bengali (বাংলা)</option>
+        <option value="mar_Deva">Marathi (मराठी)</option>
+        <option value="guj_Gujr">Gujarati (ગુજરાતી)</option>
+        <option value="kan_Knda">Kannada (ಕನ್ನಡ)</option>
+        <option value="mal_Mlym">Malayalam (മലയാളം)</option>
+        <option value="ory_Orya">Odia (ଓଡ଼ିଆ)</option>
+        <option value="pan_Guru">Punjabi (ਪੰਜਾਬੀ)</option>
+        <option value="urd_Arab">Urdu (اردو)</option>
+        <option value="asm_Beng">Assamese (অসমীয়া)</option>
+      </optgroup>
+      <optgroup label="🌍 World Languages">
+        <option value="eng_Latn" selected>English</option>
+        <option value="fra_Latn">French</option>
+        <option value="deu_Latn">German</option>
+        <option value="spa_Latn">Spanish</option>
+        <option value="jpn_Jpan">Japanese</option>
+        <option value="zho_Hans">Chinese (Simplified)</option>
+        <option value="ara_Arab">Arabic</option>
+        <option value="por_Latn">Portuguese</option>
+        <option value="rus_Cyrl">Russian</option>
+        <option value="kor_Hang">Korean</option>
+      </optgroup>
+    </select>
+  </div>
+
+  <!-- Caption Style -->
+  <div class="section">
+    <label class="section-label">Caption Style</label>
+    <div class="style-row">
+      <label>Font Size</label>
+      <input type="range" id="fontSize" min="12" max="32" value="18" />
+      <span id="fontSizeVal">18px</span>
+    </div>
+    <div class="style-row">
+      <label>Position</label>
+      <select id="captionPosition">
+        <option value="bottom">Bottom</option>
+        <option value="top">Top</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Main Toggle Button -->
+  <button class="main-btn" id="toggleBtn">
+    ▶ Start Captions
+  </button>
+
+  <!-- Download Transcript -->
+  <button class="secondary-btn" id="downloadBtn">
+    ⬇ Download Transcript
+  </button>
+
+  <div class="footer">
+    v1.0.0 · <a href="https://github.com/paulamartya25/SamaaBhasha" target="_blank">GitHub</a>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

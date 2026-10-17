@@ -1,0 +1,44 @@
+# .gitignore — SamaaBhasha
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Environment / Secrets — NEVER commit these!
+.env
+*.env
+backend/.env
+
+# Model weights (too large for GitHub — use HuggingFace Hub)
+*.bin
+*.pt
+*.pth
+*.onnx
+models/
+
+# Node / Extension build artifacts
+node_modules/
+extension/dist/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+logs/
