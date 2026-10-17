@@ -1,0 +1,121 @@
+# Free Datasets for SamaaBhasha Training
+# All datasets below are publicly available at zero cost
+
+datasets:
+
+  # ─── Speech Recognition (for Whisper fine-tuning) ────────────────────
+  speech:
+    - name: Mozilla Common Voice 13.0
+      url: https://huggingface.co/datasets/mozilla-foundation/common_voice_13_0
+      languages: [hi, te, ta, bn, mr, gu, kn, ml, pa, ur]
+      size: "1000+ hours across Indian languages"
+      license: CC-0
+      how_to_use: "load_dataset('mozilla-foundation/common_voice_13_0', 'hi')"
+
+    - name: Kathbath (IIT Madras)
+      url: https://huggingface.co/datasets/ai4bharat/kathbath
+      languages: [hi, te, ta, bn, mr, gu, kn, ml, or, pa]
+      size: "1684 hours, 12 Indian languages"
+      license: CC-BY-4.0
+      note: "Best quality Indian speech dataset"
+      how_to_use: "load_dataset('ai4bharat/kathbath', 'hindi')"
+
+    - name: MUCS (Multilingual & Code-Switching)
+      url: https://huggingface.co/datasets/google/xtreme
+      languages: [hi, te, ta, bn]
+      size: "500+ hours"
+      license: Apache-2.0
+
+  # ─── Translation (for mBART fine-tuning) ─────────────────────────────
+  translation:
+    - name: Samanantar
+      url: https://huggingface.co/datasets/ai4bharat/samanantar
+      languages: "11 Indian languages ↔ English"
+      size: "49.6 MILLION sentence pairs — LARGEST Indian parallel corpus"
+      license: CC-BY-4.0
+      how_to_use: "load_dataset('ai4bharat/samanantar', 'hi')"
+      note: "YOUR PRIMARY TRAINING DATA — Use this!"
+
+    - name: FLORES-200 (Evaluation only)
+      url: https://huggingface.co/datasets/facebook/flores
+      languages: "200 languages including all Indian ones"
+      size: "1012 sentences per language"
+      license: CC-BY-SA-4.0
+      note: "Use for EVALUATION only — gold standard benchmark"
+
+    - name: OPUS-100
+      url: https://huggingface.co/datasets/opus100
+      size: "55M pairs, 100 languages"
+      license: Various open licenses
+
+  # ─── Text Corpora (for BERT fine-tuning) ──────────────────────────────
+  text:
+    - name: IndicCorp v2 (AI4Bharat)
+      url: https://huggingface.co/datasets/ai4bharat/IndicNLP-Corpus
+      languages: "23 Indian languages"
+      size: "20.9 billion tokens"
+      license: CC-BY-4.0
+      note: "Use for BERT domain adaptation on Indian text"
+
+    - name: Wikipedia Dumps (All Indian languages)
+      url: https://huggingface.co/datasets/wikipedia
+      how_to_use: "load_dataset('wikipedia', '20220301.hi')"
+      license: CC-BY-SA-3.0
+
+  # ─── Summarization (for BART fine-tuning) ────────────────────────────
+  summarization:
+    - name: XSum (BBC)
+      url: https://huggingface.co/datasets/xsum
+      size: "226K article-summary pairs"
+      license: MIT
+      note: "Best for short 1-sentence summaries = captions!"
+
+    - name: CNN/DailyMail
+      url: https://huggingface.co/datasets/cnn_dailymail
+      size: "300K pairs"
+      license: Apache-2.0
+
+  # ─── Evaluation Benchmarks ────────────────────────────────────────────
+  benchmarks:
+    - name: IndicSUPERB
+      url: https://huggingface.co/datasets/ai4bharat/IndicSUPERB
+      note: "Standard benchmark for Indian language speech tasks"
+
+    - name: IN22 (IndicTrans2 Benchmark)
+      url: https://huggingface.co/datasets/ai4bharat/IN22-Gen
+      note: "22 Indian language translation benchmark"
+
+# ─── GPU Hours Planning (Kaggle: 30 hrs/week free) ───────────────────────
+gpu_schedule:
+  week_1:
+    task: "Fine-tune Whisper-small on Hindi (Common Voice)"
+    hours: 4
+    expected_wer_improvement: "18% → 12%"
+
+  week_2:
+    task: "Fine-tune Whisper on 3 more languages (Tamil, Telugu, Bengali)"
+    hours: 8
+    note: "Run 3 separate training jobs"
+
+  week_3:
+    task: "Fine-tune mBART on Hindi↔English (Samanantar 100K)"
+    hours: 6
+    expected_bleu_improvement: "28 → 38"
+
+  week_4:
+    task: "Fine-tune mBART on rare language pairs (Te↔Ml, Pa↔Or)"
+    hours: 10
+    note: "THIS IS YOUR NOVELTY — barely any research exists here"
+
+  week_5:
+    task: "Fine-tune BERT for ASR correction"
+    hours: 4
+
+  week_6:
+    task: "Fine-tune BART for caption summarization"
+    hours: 4
+
+  week_7_8:
+    task: "Evaluation, benchmarking, and writing"
+    hours: 8
+    note: "Compare all fine-tuned vs baseline models"
